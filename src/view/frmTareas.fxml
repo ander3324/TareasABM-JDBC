@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="346.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.frmTareasController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="449.0" style="tituloStyle" text="   Mis Tareas" textFill="#160765">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Button fx:id="btnNueva" layoutX="35.0" layoutY="307.0" mnemonicParsing="false" onAction="#nueva_OnAction" prefHeight="25.0" prefWidth="109.0" text="Nueva" />
+      <Button fx:id="btnEditar" layoutX="184.0" layoutY="307.0" mnemonicParsing="false" onAction="#editar_OnAction" prefHeight="25.0" prefWidth="109.0" text="Editar" />
+      <Button fx:id="btnBorrar" layoutX="337.0" layoutY="307.0" mnemonicParsing="false" onAction="#borrar_OnAction" prefHeight="25.0" prefWidth="109.0" text="Borrar" />
+      <TableView fx:id="tbvTareas" layoutX="20.0" layoutY="104.0" prefHeight="187.0" prefWidth="439.0">
+        <columns>
+            <TableColumn prefWidth="45.0" text="Nro">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="nro" /> 
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="204.0" text="Descripcion">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="descripcion" /> 
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="105.0" text="Fecha">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="fecha" /> 
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="84.0" text="FInalizada">
+                <cellValueFactory>
+                    <javafx.scene.control.cell.PropertyValueFactory property="finalizada" /> 
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <TextField fx:id="txfBuscar" layoutX="35.0" layoutY="59.0" onKeyPressed="#buscarOnKeyPressed" prefHeight="25.0" prefWidth="408.0" promptText="Buscar por Descripción" />
+   </children>
+</AnchorPane>
