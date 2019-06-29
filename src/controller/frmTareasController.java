@@ -88,9 +88,9 @@ public class frmTareasController implements Initializable {
 
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
-                //lstTareas.getItems().remove(lstTareas.getSelectionModel().getSelectedItem());
-                tareastbv.TareasTBV.repo.quitarTarea(tbvTareas.getSelectionModel().getSelectedItem());
-                cargarItems();
+               tareastbv.TareasTBV.repo.borrar(tbvTareas.getSelectionModel().getSelectedItem().getNro());
+           
+               cargarItems();
             }
         });
     }

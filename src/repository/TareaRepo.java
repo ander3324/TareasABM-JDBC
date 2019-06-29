@@ -25,7 +25,7 @@ public class TareaRepo {
 
     public TareaRepo() {
         tareas = new ArrayList<>();
-        cargarTareas();
+        //cargarTareas();
     }
 
     public void addTarea(Tarea tarea) {
@@ -61,7 +61,7 @@ public class TareaRepo {
                 tarea.setDescripcion(rs.getString(2));
                 tarea.setFecha(rs.getDate(3));
                 tarea.setFinalizada(rs.getBoolean(4));
-                
+
                 tareas.add(tarea);
             }
 
@@ -70,7 +70,7 @@ public class TareaRepo {
         }
 
     }
-    
+
     public void cargarTareas(String descripcion) {
 
         //Limpiar lista:
@@ -98,7 +98,7 @@ public class TareaRepo {
                 tarea.setDescripcion(rs.getString(2));
                 tarea.setFecha(rs.getDate(3));
                 tarea.setFinalizada(rs.getBoolean(4));
-                
+
                 tareas.add(tarea);
             }
 
@@ -108,12 +108,45 @@ public class TareaRepo {
 
     }
 
+    /*
+     * Métodos de ABM en la base de datos
+     */
+    public void insertar() {
+
+    }
+
+    public void editar() {
+
+    }
+
+    public void borrar(int id) {
+        try {
+            //Objetos de conexión:
+            Connection cn = new ConnectionFactory().getConnection();
+
+            //VAriable que almacena la sentencia delete...
+            String sql = "delete from tareas where id =" + id;
+
+            //Crear un obj PS
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            //Ejecutar el delete...
+            ps.execute();
+            
+            tareas.clear();
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
     public List<Tarea> getTareas() {
+        cargarTareas();
         return tareas;
     }
-    
-     public List<Tarea> getTareas(String descripcion) {
-         cargarTareas(descripcion);
+
+    public List<Tarea> getTareas(String descripcion) {
+        cargarTareas(descripcion);
         return tareas;
     }
 
